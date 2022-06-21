@@ -4,6 +4,7 @@ require("./db");
 const userRouter = require("./routes/user");
 require("dotenv").config();
 var cors = require("cors");
+
 //middleware
 const app = express();
 
@@ -18,5 +19,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("app is running");
+  console.log(PORT + " app is running");
 });
