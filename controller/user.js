@@ -112,6 +112,25 @@ exports.getPolicy = async (req, res) => {
   }
 };
 
+exports.postVerify = async (req, res) => {
+
+    const { verificationNo } = req.body;
+
+  const user = await Verify.findOne({ verificationNo });
+  if (!user)
+    return res.send({ success: false, message: "Verification Number Wrong" });
+
+    return res.send({
+      success: true,
+      message: "Login Successful!",
+      user: {
+        verificationNo:user.verificationNo,
+      },
+    });
+ 
+};
+
+
 exports.getVerify = async (req, res) => {
   try {
     const data = await Verify.find();

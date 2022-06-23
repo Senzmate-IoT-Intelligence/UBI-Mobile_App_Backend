@@ -8,6 +8,7 @@ const {
   getPayment,
   getPolicy,
   getVerify,
+  postVerify
 } = require("../controller/user");
 
 const {
@@ -23,10 +24,11 @@ router.post("/create", validateUser, validate, createUser);
 router.post("/signin", signin);
 router.get("/user", getuserbyemail);
 router.get("/users", getusers);
-router.get("/trip",getTrip)
-router.get("/payment",getPayment)
-router.get("/policy",getPolicy)
-router.get("/verify",getVerify)
+router.get("/trip",getTrip);
+router.get("/payment",getPayment);
+router.get("/policy",getPolicy);
+router.get("/verify",getVerify);
+router.post("/verifyCreate",postVerify)
 router.post("/requestResetPassword", resetPasswordRequestController);
 router.post("/resetPassword", resetPasswordController);
 router.post("/changePassword", changePasswordController);
