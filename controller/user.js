@@ -1,6 +1,10 @@
 const User = require("../model/user");
 const { sendError } = require("../utils/helper");
 const jwt = require("jsonwebtoken");
+const Trip = require("../model/trip");
+const Payment = require("../model/payment");
+const Policy = require("../model/policy");
+const Verify = require("../model/verify");
 
 //Signup Code segment
 exports.createUser = async (req, res) => {
@@ -79,3 +83,41 @@ exports.getusers = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.getTrip = async (req, res) => {
+  try {
+    const data = await Trip.find();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.getPayment = async (req, res) => {
+  try {
+    const data = await Payment.find();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+exports.getPolicy = async (req, res) => {
+  try {
+    const data = await Policy.find();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.getVerify = async (req, res) => {
+  try {
+    const data = await Verify.find();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
